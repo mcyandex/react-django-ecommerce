@@ -4,7 +4,7 @@ import Product from '../components/Product'
 
 import products from '../products'
 
-function HomeSecreen() {
+function HomeScreen() {
   return (
     <div>
         <h1>Latest Products</h1>
@@ -20,4 +20,4 @@ function HomeSecreen() {
   )
 }
 
-export default HomeSecreen
+export default HomeScreen
