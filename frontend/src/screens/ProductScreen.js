@@ -1,17 +1,29 @@
-import React from 'react'
+import React ,{ useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Row, Col ,Image ,ListGroup, Button, Card } from 'react-bootstrap'
 import Rating from '../components/Rating'
-import products from '../products'
+// import products from '../products'
 import { useParams } from 'react-router-dom'
+import axios from 'axios'
 
 function ProductScreen() {
   let params = useParams()
     // console.log(products.find((p) => p._id === params.id))
-  const product = products.find((p) => p._id === params.id)
-  return (
+//   const product = products.find((p) => p._id === params.id)
+const [product,setProduct]= useState([])
+
+useEffect(() => {
+  async function fetchProduct(){
+    const { data } = await axios.get(`/api/products/${ params.id}`)
+    setProduct(data)
+  }
+  fetchProduct()
+},[])
+
+
+return (
     <div>
-        <Link to='/' className='btn btn-light my-3'>Go Back</Link>
+        <Link to='/' className='btn btn-light my-3'> &larr; Go Back</Link>
         <Row>
             <Col md={6}>
                 <Image src={product.image} alt={product.name} fluid/>
@@ -50,7 +62,7 @@ function ProductScreen() {
                             <Row>
                                 <Col>Status: </Col>
                                 <Col>
-                                <strong>${product.countInStock>0 ?'In Stock': 'Out of Stock'}</strong>
+                                <strong>{product.countInStock>0 ?'In Stock': 'Out of Stock'}</strong>
                                 </Col>
                             </Row>
                         </ListGroup.Item>   
