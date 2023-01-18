@@ -7,6 +7,9 @@ import Header from './components/Header';
 import HomeScreen from './screens/HomeScreen';
 import CartScreen from './screens/CartScreen';
 import ProductScreen from './screens/ProductScreen';
+import LoginScreen from './screens/LoginScreen';
+import RegisterScreen from './screens/RegisterScreen';
+
 
 function App() {
   return (
@@ -18,6 +21,10 @@ function App() {
             <Route path ="/" element={ <HomeScreen /> } exact />
             <Route path ="/product/:id" element={ <ProductScreen /> } />
             <Route path ="/cart/:id?" element={ <CartScreen /> } />
+            <Route path ="/login" element={ <LoginScreen /> } />
+            <Route path ="/register" element={ <RegisterScreen /> } />
+
+
           </Routes>
         </Container>
       </main>

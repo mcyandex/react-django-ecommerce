@@ -14,7 +14,7 @@ import Message from "../components/Message";
 import { addToCart,removeFromCart } from "../actions/cartActions";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 
-function CartScreen() {
+function CartScreen() { 
   let params = useParams();
   let location = useLocation();
   let navigate = useNavigate();
@@ -25,7 +25,7 @@ function CartScreen() {
 
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
-  console.log("cartItems: ", cartItems);
+  // console.log("cartItems: ", cartItems);
 
   useEffect(() => {
     if (productId) {
