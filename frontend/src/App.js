@@ -9,6 +9,7 @@ import CartScreen from './screens/CartScreen';
 import ProductScreen from './screens/ProductScreen';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
+import ProfileScreen from './screens/ProfileScreen';
 
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
             <Route path ="/cart/:id?" element={ <CartScreen /> } />
             <Route path ="/login" element={ <LoginScreen /> } />
             <Route path ="/register" element={ <RegisterScreen /> } />
-
+            <Route path ="/profile" element={ <ProfileScreen /> } />
 
           </Routes>
         </Container>
