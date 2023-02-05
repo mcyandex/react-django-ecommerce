@@ -1,8 +1,9 @@
 import React from 'react'
-import { useDispatch ,useSelector } from 'react-redux'
-import { Container ,Navbar ,Nav, NavDropdown  } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux'
+import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
-import {logout} from '../actions/userActions'
+import SearchBox from './SearchBox'
+import { logout } from '../actions/userActions'
 
 function Header() {
 
@@ -17,15 +18,18 @@ function Header() {
 
   return (
     <header>
-      <Navbar bg="dark" variant= "dark" expand="lg" collapseOnSelect>
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky="top" >
       <Container>
         <LinkContainer to='/'>
           <Navbar.Brand >Pro-Shop</Navbar.Brand>
         </LinkContainer>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-           <LinkContainer to='/cart'>
+            <SearchBox />
+          </Nav>
+          <Nav>
+          <LinkContainer to='/cart'>
               <Nav.Link ><i className='fas fa-shopping-cart'>Cart</i></Nav.Link>
             </ LinkContainer>
 
@@ -34,6 +38,7 @@ function Header() {
                 <LinkContainer to='/profile'>
                   <NavDropdown.Item>Profile</NavDropdown.Item>
                 </LinkContainer>
+                <NavDropdown.Divider />
                 <NavDropdown.Item onClick = {logoutHandler}>Logout</NavDropdown.Item>
 
               </NavDropdown>
@@ -42,17 +47,17 @@ function Header() {
               <Nav.Link ><i className='fas fa-user'>Login</i></Nav.Link>
             </LinkContainer>
             )}
-            
-            {userInfo && userInfo.isAdmin && (
+
+           {userInfo && userInfo.isAdmin && (
                                 <NavDropdown title='Admin' id='adminmenue'>
                                     <LinkContainer to='/admin/userlist'>
                                         <NavDropdown.Item>Users</NavDropdown.Item>
                                     </LinkContainer>
-
+                                    <NavDropdown.Divider />
                                     <LinkContainer to='/admin/productlist'>
                                         <NavDropdown.Item>Products</NavDropdown.Item>
                                     </LinkContainer>
-
+                                    <NavDropdown.Divider />
                                     <LinkContainer to='/admin/orderlist'>
                                         <NavDropdown.Item>Orders</NavDropdown.Item>
                                     </LinkContainer>
@@ -60,14 +65,12 @@ function Header() {
                                 </NavDropdown>
                             )}
 
-          
           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
     </header>
-   )
+  );
 }
 
-export default Header
-
+export default Header;
