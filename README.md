@@ -3,6 +3,7 @@
 
 This project is from my Django + React collaboration wih Brad Traversy. Full Course: https://www.udemy.com/course/django-with-react-an-ecommerce-website/?couponCode=387F19CD4087385E87C1
 
+![proshop_django_demo](https://user-images.githubusercontent.com/105595540/213966940-b9611964-aec3-4bfe-a634-243690cb39b8.png)
 
 
 # Features
