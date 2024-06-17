@@ -22,7 +22,7 @@ This project is from my Django + React collaboration wih Brad Traversy.
 
 # Download & Setup Instructions
 
-* 1 - Clone project: git clone https://github.com/mcyandex/E-Commerce
+* 1 - Clone project: git clone https://github.com/mcyandex/propshop-ecommerce
 * 2 - cd proshop_django
 * 3 - Create virtual environment: virtualenv myenv
 * 4 - myenv\scripts\activate
